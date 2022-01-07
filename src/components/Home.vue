@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <span v-if="autoUpdate && updateTimer < updateDelay">Last updated {{ updateTimer }} seconds ago...</span>
+    <span v-if="autoUpdate && updateTimer < updateDelay">Updating in {{ updateDelay-updateTimer }} second<span v-if="updateDelay-updateTimer > 1">s</span>...</span>
     <span v-if="autoUpdate && updateTimer >= updateDelay">Updating now...</span>
     <span v-if="!autoUpdate">Auto Update is disabled.</span>
     <br><span>{{ tokens.length }} Tokens found</span>
@@ -27,7 +27,7 @@ export default {
   methods: {
     requestTokens(){
       axios
-          .get("http://localhost:8888/api/tokens")
+          .get("http://52.39.55.16:8080/api/tokens")
           .then(res => {
             if (res.data.success) {
               this.tokens = res.data.tokens
