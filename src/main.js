@@ -1,8 +1,24 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from "vue"
+import Router from "vue-router"
+import App from "./App.vue"
+import www from "./routes/www"
+import NotFound from "@/components/NotFound";
 
 Vue.config.productionTip = false
 
+Vue.use(Router)
+
+function router(router){
+  router.addRoute({
+    path: "*",
+    props: true,
+    name: "Not Found",
+    component: NotFound
+  })
+  return router
+}
+
 new Vue({
   render: h => h(App),
-}).$mount('#app')
+  router: router(www)
+}).$mount("#app")
