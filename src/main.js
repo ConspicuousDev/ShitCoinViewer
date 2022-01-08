@@ -10,7 +10,7 @@ Vue.config.productionTip = false
 Vue.use(Router)
 
 export async function get(endpoint){
-  let api = "https://shitcoin-api.herokuapp.com/"
+  let api = "https://shitcoin-api.herokuapp.com"
   if(location.hostname === "localhost"){
     api = "http://localhost:8888"
   }else if(location.hostname === "omniscient.phild.education"){
