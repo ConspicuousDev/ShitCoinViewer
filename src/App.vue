@@ -56,6 +56,23 @@ export default {
   src: url("./assets/fonts/UI-700.ttf") format("truetype");
 }
 
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 one{
   font-weight: 100;
 }
