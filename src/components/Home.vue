@@ -43,7 +43,11 @@ export default {
       }
       return 336
     },
-    requestTokens(){
+    onResize(){
+      this.window.width = window.innerWidth
+      this.window.height = window.innerHeight
+    },
+    requestTokens() {
       get("/v1/tokens").then(res => {
         if (res.data.success) {
           let tokens = res.data.tokens
@@ -68,10 +72,8 @@ export default {
   },
   mounted() {
     this.update()
-    window.addEventListener("resize", () => {
-      this.window.width = window.innerWidth
-      this.window.height = window.innerHeight
-    });
+    this.onResize()
+    window.addEventListener("resize", this.onResize);
   }
 }
 </script>

@@ -9,12 +9,12 @@ Vue.config.productionTip = false
 
 Vue.use(Router)
 
-export function get(endpoint){
+export async function get(endpoint){
   let api = "http://omniscient.phild.education:8888"
   if(location.hostname === "localhost"){
     api = "http://localhost:8888"
   }
-  return axios.get(api+endpoint)
+  return await axios.get(api+endpoint)
 }
 
 function router(router){
