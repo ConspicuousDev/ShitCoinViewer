@@ -56,7 +56,7 @@ export default {
   src: url("./assets/fonts/UI-700.ttf") format("truetype");
 }
 
-a{
+one{
   font-weight: 100;
 }
 b{
@@ -88,23 +88,81 @@ html, body{
 .page{
 
 }
+.content{
+  max-width: 1008px;
+}
+.h-center{
+  margin: 0 auto;
+}
 
 .v-spacer{
   height: 5px;
 }
 
 .box{
-  width: 575px;
+  display: inline-block;
+  position: relative;
+  width: 500px;
   white-space: nowrap;
   text-overflow: ellipsis;
   padding: 5px;
   border-radius: 8px;
-  border: 1px red solid;
+  border: 1px transparent solid;
 }
 .box-title{
   margin: 0 0 0 5px;
+  max-width: 95%;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
-.box-item{
+.box-item-holder{
   margin: 0 0 0 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.box-icon{
+  width: 25px;
+  height: 25px;
+  margin: 7px;
+}
+.box-icon *{
+  width: inherit;
+  height: inherit;
+}
+
+.top-right{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.top-left{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.bottom-right{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.bottom-left{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+router-link{
+  color: #B0B0B0;
+  text-decoration: none;
+}
+router-link:hover{
+  text-decoration: underline;
+}
+a{
+  color: #109BE6;
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
 }
 </style>

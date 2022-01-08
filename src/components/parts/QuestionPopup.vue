@@ -31,6 +31,8 @@ export default {
   transition: .2s border-color, .2s width;
 }
 .popup:hover{
+  background: white;
+  position: absolute;
   border-color: #000000;
   cursor: pointer;
 }
