@@ -1,6 +1,6 @@
 import Router from "vue-router";
-import Home from "@/components/Home";
-import Token from "@/components/Token";
+import Home from "@/components/home/Home";
+import Token from "@/components/token/Token";
 
 export default new Router({
     mode: "history",

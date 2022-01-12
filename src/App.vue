@@ -7,14 +7,25 @@
 <script>
 export default {
   name: 'App',
+  data() {
+    return{
+      width: window.innerWidth,
+      height: window.innerHeight
+    }
+  },
   methods: {
     setFavicon(src) {
-      //@param src: Path from static directory root (public)
       let link = document.getElementById('dynamic-favicon')
       if (link) {
         link.href = src
       }
     }
+  },
+  mounted() {
+    window.addEventListener("resize", () => {
+      this.width = window.innerWidth
+      this.height = window.innerHeight
+    })
   }
 }
 </script>
@@ -56,130 +67,87 @@ export default {
   src: url("./assets/fonts/UI-700.ttf") format("truetype");
 }
 
-::-webkit-scrollbar {
-  width: 7px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 20px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-one{
+w1{
   font-weight: 100;
 }
-b{
+w2{
   font-weight: 200;
 }
-c{
+w3{
   font-weight: 300;
 }
-d{
+w4{
   font-weight: 400;
 }
-e{
+w5{
   font-weight: 500;
 }
-f{
+w6{
   font-weight: 600;
 }
-g{
+w7{
   font-weight: 700;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--light-gray-color);
+  border-radius: 20px;
+  transition: background-color var(--normal-delay);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--gray-color);
+}
+
+*, *::before, *::after{
+  box-sizing: border-box;
+}
 html, body{
   margin: 0;
   padding: 0;
   font-family: "UI", sans-serif;
   font-weight: 400;
+  font-size: 20px;
+  background-color: var(--primary-bg-color);
+  color: var(--primary-text-color);
 }
 
-.page{
-
-}
-.content{
-  max-width: 1008px;
-}
-.h-center{
-  margin: 0 auto;
-}
-
-.v-spacer{
-  height: 5px;
-}
-
-.box{
-  display: inline-block;
-  position: relative;
-  width: 500px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  padding: 5px;
-  border-radius: 8px;
-  border: 1px transparent solid;
-}
-.box-title{
-  margin: 0 0 0 5px;
-  max-width: 95%;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-.box-item-holder{
-  margin: 0 0 0 10px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-.box-icon{
-  width: 25px;
-  height: 25px;
-  margin: 7px;
-}
-.box-icon *{
-  width: inherit;
-  height: inherit;
-}
-
-.top-right{
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-.top-left{
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.bottom-right{
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-.bottom-left{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
-router-link{
-  color: #B0B0B0;
-  text-decoration: none;
-}
-router-link:hover{
-  text-decoration: underline;
-}
 a{
-  color: #109BE6;
+  color: var(--primary-asset-color);
   text-decoration: none;
 }
-a:hover{
+router-link{
+  color: var(--primary-text-color);
+  text-decoration: none;
+}
+a:hover, router-link:hover{
+  color: var(--secondary-asset-color);
   text-decoration: underline;
+  cursor: pointer;
+}
+
+:root{
+  --primary-bg-color: hsl(240, 15%, 12%);
+  --secondary-bg-color: hsl(240, 13%, 16%);
+
+  --primary-text-color: hsl(265, 0%, 94%);
+  --secondary-text-color: hsl(265, 0%, 80%);
+
+  --primary-asset-color: hsl(246, 100%, 74%);
+  --secondary-asset-color: hsl(246, 100%, 64%);
+
+  --dark-gray-color: hsl(0, 0%, 35%);
+  --gray-color: hsl(0, 0%, 50%);
+  --light-gray-color: hsl(0, 0%, 70%);
+
+  --default-radius: .5rem;
+
+  --normal-delay: 200ms
 }
 </style>
