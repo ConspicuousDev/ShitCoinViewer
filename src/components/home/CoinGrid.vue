@@ -2,7 +2,7 @@
   <div class="container">
     <div class="header">
       <div class="info">
-        <div style="margin-right: 1rem"><span v-if="autoUpdate">Updating <span v-if="updateTimer === updateDelay">now</span><span v-if="updateTimer < updateDelay">in {{ updateDelay-updateTimer }} second<span v-if="(updateDelay-updateTimer) > 1">s</span></span>...</span><span v-if="!autoUpdate">Auto Update is disabled.</span></div>
+        <div style="margin-right: 1rem"><span v-if="autoUpdate">Updating <span v-if="updateTimer >= updateDelay">now</span><span v-if="updateTimer < updateDelay">in {{ updateDelay-updateTimer }} second<span v-if="(updateDelay-updateTimer) > 1">s</span></span>...</span><span v-if="!autoUpdate">Auto Update is disabled.</span></div>
         <div style="text-align: right">{{ tokens.length }} Tokens found</div>
       </div>
       <div class="filters">
