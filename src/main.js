@@ -10,13 +10,12 @@ Vue.config.productionTip = false
 Vue.use(Router)
 
 export async function get(endpoint){
-  // let api = "https://shitcoin-api.herokuapp.com"
-  let api = "https://omniscient.phild.education:8888"
+  let api = "https://shitcoin-api.herokuapp.com"
   if(location.hostname === "localhost"){
-    api = "https://localhost:8888"
-  }/*else if(location.hostname === "omniscient.phild.education"){
+    api = "http://localhost:8888"
+  }else if(location.hostname === "omniscient.phild.education"){
      api = "http://omniscient.phild.education:8888"
-  }*/
+  }
   return await axios.get(api+endpoint)
 }
 
