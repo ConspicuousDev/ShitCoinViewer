@@ -11,9 +11,9 @@ Vue.use(Router)
 
 export async function get(endpoint){
   // let api = "https://shitcoin-api.herokuapp.com"
-  let api = "http://omniscient.phild.education:8888"
+  let api = "https://omniscient.phild.education:8888"
   if(location.hostname === "localhost"){
-    api = "http://localhost:8888"
+    api = "https://localhost:8888"
   }/*else if(location.hostname === "omniscient.phild.education"){
      api = "http://omniscient.phild.education:8888"
   }*/

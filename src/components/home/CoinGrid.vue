@@ -7,6 +7,7 @@
       </div>
       <div class="filters">
         <div>
+<!--          <span>Update Delay:</span>-->
 <!--          <OutlineButton class="btn" @click.native="updateDelay = 1"><w2>1s</w2></OutlineButton>-->
           <OutlineButton class="btn" @click.native="updateDelay = 3"><w2>3s</w2></OutlineButton>
           <OutlineButton class="btn" @click.native="updateDelay = 5"><w2>5s</w2></OutlineButton>
