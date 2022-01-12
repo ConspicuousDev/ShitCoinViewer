@@ -150,4 +150,16 @@ a:hover, router-link:hover{
 
   --normal-delay: 200ms
 }
+
+@keyframes loading {
+
+}
+
+.placeholder {
+  user-select: none;
+  color: transparent;
+  background-color: var(--primary-asset-color);
+  border-radius: var(--default-radius);
+  /*animation: loading var(--normal-delay);*/
+}
 </style>

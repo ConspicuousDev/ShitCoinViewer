@@ -1,5 +1,5 @@
 <template>
-  <div class="box" :style="{borderColor: 'rgb('+255*(1-data.score)+', '+255*data.score+', 0)'}">
+  <div v-if="!placeholder" class="box" :style="{borderColor: 'rgb('+255*(1-data.score)+', '+255*data.score+', 0)'}">
     <a class="box-icon" :href="'https://poocoin.app/tokens/'+data.address" target="_blank"><img src="../../assets/poocoin.png" alt="PooCoin"></a>
     <router-link style="color: var(--primary-text-color)" class="box-title" :to="'/token/'+data.address"><w5>{{ data.ticker }}</w5> <w3>{{ data.name }}</w3></router-link>
     <table class="box-item-holder">
@@ -21,6 +21,27 @@
       </tr>
     </table>
   </div>
+  <div v-else class="box" :style="{borderColor: 'var(--primary-asset-color)'}">
+    <span class="box-title"><w5 class="placeholder">ABC</w5> <w3 class="placeholder">Abcde Fghij</w3></span>
+    <table class="box-item-holder">
+      <tr class="box-item">
+        <td><span class="placeholder">Address:</span></td>
+        <td ><span class="placeholder">{{ shortenAddress("1111111") }}</span></td>
+      </tr>
+      <tr class="box-item">
+        <td><span class="placeholder">Owner:</span></td>
+        <td><span class="placeholder">{{ shortenAddress("33333333") }}</span></td>
+      </tr>
+      <tr class="box-item">
+        <td><span class="placeholder">Liquidity:</span></td>
+        <td><span class="placeholder">0.123 AAA</span></td>
+      </tr>
+      <tr class="box-item">
+        <td><span class="placeholder">Contract:</span></td>
+        <td><span class="placeholder">Public</span></td>
+      </tr>
+    </table>
+  </div>
 </template>
 
 <script>
@@ -28,7 +49,8 @@ export default {
   name: "CoinCard",
   components: {},
   props: {
-    data: Object
+    data: Object,
+    placeholder: Boolean
   },
   methods: {
     countDecimals(number){

@@ -9,6 +9,9 @@ Vue.config.productionTip = false
 
 Vue.use(Router)
 
+export async function sleep(ms){
+  await new Promise(res => setTimeout(res, ms))
+}
 export async function get(endpoint){
   let api = "https://shitcoin-api.herokuapp.com"
   if(location.hostname === "localhost"){

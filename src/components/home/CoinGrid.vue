@@ -17,15 +17,19 @@
         <OutlineButton class="btn"><w3>Advanced Mode</w3></OutlineButton>
       </div>
     </div>
-    <div class="grid">
-      <CoinCard v-for="token in tokens" :key="token.address" :data="token" />
+    <div class="grid" v-if="!received">
+      <CoinCard  v-for="i in 9" :key="i" :placeholder="true"/>
     </div>
+    <div class="grid" v-if="received">
+      <CoinCard v-for="token in tokens" :key="token.address" :data="token"/>
+    </div>
+
   </div>
 
 </template>
 
 <script>
-import {get} from "@/main";
+import {get, sleep} from "@/main";
 import CoinCard from "@/components/home/CoinCard";
 import OutlineButton from "@/components/common/OutlineButton";
 import OutlineTextInput from "@/components/common/OutlineTextInput";
@@ -39,6 +43,7 @@ export default {
       updateDelay: 5,
       updateTimer: 0,
       error: null,
+      received: false,
       tokens: []
     }
   },
@@ -48,6 +53,7 @@ export default {
         if (res.data.success) {
           let tokens = res.data.tokens
           tokens.reverse()
+          this.received = true
           this.tokens = tokens
         } else {
           this.error = res.data.error
@@ -61,13 +67,13 @@ export default {
         if (this.updateTimer > this.updateDelay) {
           await this.requestTokens()
         }
-        await new Promise(res => setTimeout(res, 1000))
+        await sleep(1000)
         this.updateTimer++
       }
     }
   },
-  mounted() {
-    this.update()
+  async mounted() {
+    await this.update()
   }
 }
 </script>
