@@ -13,7 +13,7 @@
       </tr>
       <tr class="box-item">
         <td><w5>Liquidity:</w5></td>
-        <td><w3>{{ formatNumber(data.liquidity, 9) }} BNB</w3>&nbsp;<QuestionPopup :text="'Expires on '+new Date(data.liquidityDate).toLocaleString('en-US').replace(',', ' @')"/></td>
+        <td><w3>{{ formatNumber(data.liquidity, 9) }} BNB</w3></td>
       </tr>
       <tr class="box-item">
         <td><w5>Contract:</w5></td>
